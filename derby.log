@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon Oct 20 14:46:08 BST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046): instance a816c00e-019a-01de-c5ae-000005acced0 
+on database directory C:\Users\lewtw\Documents\testProject\metastore_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3fee733d 
+Loaded from file:/C:/Users/lewtw/Documents/testProject/.venv/Lib/site-packages/pyspark/jars/derby-10.16.1.1.jar
+java.vendor=OpenLogic
+java.runtime.version=21.0.5+11-adhoc.Administrator.jdk21u
+user.dir=C:\Users\lewtw\Documents\testProject
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
