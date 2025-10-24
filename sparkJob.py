@@ -9,7 +9,7 @@ spark = SparkSession.builder \
 
 #.config("spark.sql.warehouse.dir", "hdfs:///user/Consultants/warehouse") \
 # .config("hive.metastore.warehouse.external.dir", "hdfs:///user/Consultants/warehouse") \
-:quit
+
 def readout(df):
     print("+++++++++++++++++++++++ readout start +++++++++++++++++++++++")
     for row in df.collect(): 
