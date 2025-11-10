@@ -10,13 +10,15 @@ def longest_common_substring(string1, string2):
         return len(substring_matches[0])
     except:
         return 0
-    
+
 def substrings(instring):
     substrings = []
     for i in range(len(instring)):
-        for j in range(len(instring)):
+        # inner loop: choose the ending index (non-inclusive)
+        # start from i+1 so the substring is never empty
+        for j in range(i + 1, len(instring) + 1):
             substrings.append(instring[i:j])
-    return [i for i in substrings if i != '']
+    return substrings
 
 print(longest_common_substring("ABCDE", "CACAABCDABC")) # expected: ABCD --> 4
 print(longest_common_substring("ABCDEF", "FBDAMNCD"))   # expected: CD --> 2
