@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, to_json, struct
+from pyspark.sql.functions import to_json, struct
 import requests
-from kafka import KafkaProducer
+import json
 
 # Initialize Spark session
 spark = SparkSession.builder \
@@ -20,12 +20,17 @@ df_from_text = spark.read.json(spark.sparkContext.parallelize([total]))
 
 # Select columns to send
 message_df = df_from_text.select(
-    col("id"),
-    col("stationName"),
-    col("lineName"),
-    col("towards"),
-    col("expectedArrival")
+    "id",
+    "stationName",
+    "lineName",
+    "towards",
+    "expectedArrival"
 )
 
-# Convert DataFrame to JSON strings
-mess
+# Write DataFrame directly to Kafka
+message_df.selectExpr("CAST(id AS STRING) AS key", "to_json(struct(*)) AS value") \
+    .write \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "ip-172-31-3-80.eu-west-2.compute.internal:9092") \
+    .option("topic", "tfl_victoria_line") \
+    .save()
